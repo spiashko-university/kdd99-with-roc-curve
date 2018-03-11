@@ -1,0 +1,9 @@
+.idea/**
+venv/**
+trained_model/**
+**/*.pyc
+**/*.kdd99
+*.gz
+kddcup.data_10_percent/
+best_weights.hdf5
+.directory
