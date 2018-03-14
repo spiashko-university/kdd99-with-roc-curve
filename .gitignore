@@ -7,3 +7,4 @@ trained_model/**
 kddcup.data_10_percent/
 best_weights.hdf5
 .directory
+kddcup.data/

@@ -16,8 +16,8 @@ from utils import *
 tf.logging.set_verbosity(tf.logging.ERROR)
 tf.set_random_seed(42)
 
-path = "./kddcup.data_10_percent/"
-filename = os.path.join(path, "kddcup.data_10_percent_updated")
+path = "./kddcup.data/"
+filename = os.path.join(path, "kddcup.data_updated")
 
 df = pd.read_csv(filename, na_values=['NA', '?'], names=column_names)
 
@@ -45,7 +45,7 @@ adam = Adam(lr=0.005)
 model.compile(loss='categorical_crossentropy', optimizer=adam)
 monitor = EarlyStopping(monitor='val_loss', min_delta=1e-3, patience=5, verbose=1, mode='auto')
 checkpointer = ModelCheckpoint(filepath="best_weights.hdf5", verbose=0, save_best_only=True)  # save best model
-model.fit(x_train, y_train, validation_data=(x_test, y_test), callbacks=[monitor, checkpointer], verbose=1, epochs=1)
+model.fit(x_train, y_train, validation_data=(x_test, y_test), callbacks=[monitor, checkpointer], verbose=1, epochs=10)
 model.load_weights('best_weights.hdf5')  # load weights from best model
 
 # Measure accuracy

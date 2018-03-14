@@ -15,3 +15,6 @@ def update_file(filename):
     with open(new_filename, 'w') as f:
         f.writelines(content_new)
     return new_filename
+
+
+update_file("./kddcup.data/kddcup.data")
